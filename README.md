@@ -65,3 +65,40 @@ This project provides APIs for students and recruiters to manage job application
 
 ## Project Structure
 
+```text
+backend
+│
+├── config
+│   └── db.js
+│
+├── controllers
+│   ├── authController.js
+│   ├── jobController.js
+│   └── applicationController.js
+│
+├── middleware
+│   ├── authMiddleware.js
+│   ├── roleMiddleware.js
+│   ├── uploadMiddleware.js
+│   └── errorMiddleware.js
+│
+├── models
+│   ├── user.js
+│   ├── Job.js
+│   └── Application.js
+│
+├── routes
+│   ├── authRoutes.js
+│   ├── jobRoutes.js
+│   └── applicationRoutes.js
+│
+├── utils
+│   └── generateToken.js
+│
+├── uploads
+│
+├── server.js
+├── package.json
+└── .env
+```
+
