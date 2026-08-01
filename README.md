@@ -64,3 +64,4 @@ This project provides APIs for students and recruiters to manage job application
 ---
 
 ## Project Structure
+
