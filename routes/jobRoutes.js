@@ -17,7 +17,7 @@ const { authorizeRoles } = require("../middleware/roleMiddleware");
 router.post(
     "/",
     protect,
-    authorizeRoles("admin"),
+    authorizeRoles("admin", "recruiter"),
     createJob
 );
 
@@ -29,14 +29,14 @@ router.get("/:id", getJobById);
 router.put(
     "/:id",
     protect,
-    authorizeRoles("admin"),
+    authorizeRoles("admin", "recruiter"),
     updateJob
 );
 
 router.delete(
     "/:id",
     protect,
-    authorizeRoles("admin"),
+    authorizeRoles("admin", "recruiter"),
     deleteJob
 );
 
