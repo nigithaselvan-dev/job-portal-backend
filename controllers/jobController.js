@@ -35,6 +35,29 @@ const createJob = async (req, res) => {
   }
 };
 
+const getRecruiterJobs = async (req, res) => {
+
+    try {
+
+        const jobs = await Job.find({
+            recruiter: req.user.id
+        }).sort({
+            createdAt: -1
+        });
+
+
+        res.status(200).json(jobs);
+
+
+    } catch(error) {
+
+        res.status(500).json({
+            message:error.message
+        });
+
+    }
+
+};
 // Get All Jobs with Pagination
 const getAllJobs = async (req, res) => {
 
@@ -259,6 +282,7 @@ const filterJobs = async (req, res) => {
 
 module.exports = {
     createJob,
+    getRecruiterJobs,
     getAllJobs,
     getJobById,
     updateJob,

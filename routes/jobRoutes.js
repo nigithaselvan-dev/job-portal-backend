@@ -4,6 +4,7 @@ const router = express.Router();
 
 const {
     createJob,
+    getRecruiterJobs,
     getAllJobs,
     getJobById,
     updateJob,
@@ -24,8 +25,13 @@ router.post(
 router.get("/", getAllJobs);
 router.get("/search", searchJobs);
 router.get("/filter", filterJobs);
+router.get(
+    "/recruiter/my-jobs",
+    protect,
+    authorizeRoles("admin", "recruiter"),
+    getRecruiterJobs
+);
 router.get("/:id", getJobById);
-
 router.put(
     "/:id",
     protect,
