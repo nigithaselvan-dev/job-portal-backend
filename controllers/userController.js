@@ -1,9 +1,14 @@
 const User = require("../models/User");
 
-
 const uploadResume = async(req,res)=>{
 
 try{
+
+if(!req.file){
+return res.status(400).json({
+message:"Please upload a file"
+});
+}
 
 
 const user = await User.findById(req.user.id);
@@ -16,10 +21,8 @@ await user.save();
 
 
 res.status(200).json({
-
 message:"Resume uploaded successfully",
 resume:user.resume
-
 });
 
 
@@ -32,8 +35,8 @@ message:error.message
 
 }
 
-
 };
+
 
 
 module.exports={
