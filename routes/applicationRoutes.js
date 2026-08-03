@@ -33,7 +33,7 @@ router.get(
 router.get(
     "/job/:jobId",
     protect,
-    authorizeRoles("admin"),
+    authorizeRoles("admin", "recruiter"),
     getJobApplicants
 );
 
@@ -42,7 +42,7 @@ router.get(
 router.put(
     "/:id",
     protect,
-    authorizeRoles("admin"),
+    authorizeRoles("admin", "recruiter"),
     updateApplicationStatus
 );
 
