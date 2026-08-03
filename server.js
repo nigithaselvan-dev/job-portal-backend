@@ -1,3 +1,4 @@
+const userRoutes = require("./routes/userRoutes");
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -55,6 +56,7 @@ app.use("/api/jobs", jobRoutes);
 
 app.use("/api/applications", applicationRoutes);
 
+app.use("/api/users", userRoutes);
 
 // Test API
 
