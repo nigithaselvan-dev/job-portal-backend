@@ -4,7 +4,8 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
-
+const fs = require("fs");
+const path = require("path");
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
@@ -16,6 +17,12 @@ const errorHandler = require("./middleware/errorMiddleware");
 
 dotenv.config();
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
+// Create uploads folder if not exists
+const uploadPath = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath);
+}
 connectDB();
 
 
