@@ -95,32 +95,35 @@ Recruiter:
 ---
 
 # Project Structure
+
+```
 backend
 │
 ├── config
-│ └── db.js
+│   └── db.js
 │
 ├── controllers
-│ ├── authController.js
-│ ├── jobController.js
-│ ├── applicationController.js
-│ └── userController.js
+│   ├── authController.js
+│   ├── jobController.js
+│   ├── applicationController.js
+│   └── userController.js
 │
 ├── middleware
-│ ├── authMiddleware.js
-│ ├── uploadMiddleware.js
-│ └── errorMiddleware.js
+│   ├── authMiddleware.js
+│   ├── uploadMiddleware.js
+│   └── errorMiddleware.js
 │
 ├── models
-│ ├── User.js
-│ ├── Job.js
-│ └── Application.js
+│   ├── User.js
+│   ├── Job.js
+│   └── Application.js
 │
 ├── routes
 │
 ├── uploads
 │
 └── server.js
+```
 
 ---
 
@@ -130,37 +133,78 @@ backend
 
 ### Register
 
+```
+POST /api/auth/register
+```
+
 ### Login
 
----
+```
+POST /api/auth/login
+```
+
 
 ## Jobs
 
 ### Create Job
 
+```
+POST /api/jobs
+```
+
 ### Get All Jobs
+
+```
+GET /api/jobs
+```
 
 ### Get Job By ID
 
+```
+GET /api/jobs/:id
+```
+
 ### Update Job
+
+```
+PUT /api/jobs/:id
+```
 
 ### Delete Job
 
----
+```
+DELETE /api/jobs/:id
+```
+
 
 ## Applications
 
 ### Apply Job
 
+```
+POST /api/applications
+```
+
 ### Student Applications
+
+```
+GET /api/applications/student
+```
 
 ### View Applicants
 
----
+```
+GET /api/applications/job/:jobId
+```
+
 
 ## Resume
 
 ### Upload Resume
+
+```
+PUT /api/users/resume
+```
 
 ---
 
@@ -168,20 +212,47 @@ backend
 
 Create a `.env` file:
 
+```
+PORT=5000
+
+MONGO_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_secret_key
+```
+
 ---
 
 # Installation
 
 Clone repository:
 
+```
+git clone https://github.com/nigithaselvan-dev/job-portal-backend.git
+```
+
 Go inside project:
+
+```
+cd job-portal-backend
+```
 
 Install dependencies:
 
+```
+npm install
+```
+
 Run development server:
+
+```
+npm run dev
+```
 
 Server runs on:
 
+```
+http://localhost:5000
+```
 
 ---
 
@@ -190,7 +261,6 @@ Server runs on:
 Backend deployed using:
 
 Render
-
 
 ---
 
@@ -201,7 +271,6 @@ Render
 - Advanced recruiter analytics
 - Real-time notifications
 - Payment integration
-
 
 ---
 
