@@ -95,3 +95,118 @@ Recruiter:
 ---
 
 # Project Structure
+backend
+│
+├── config
+│ └── db.js
+│
+├── controllers
+│ ├── authController.js
+│ ├── jobController.js
+│ ├── applicationController.js
+│ └── userController.js
+│
+├── middleware
+│ ├── authMiddleware.js
+│ ├── uploadMiddleware.js
+│ └── errorMiddleware.js
+│
+├── models
+│ ├── User.js
+│ ├── Job.js
+│ └── Application.js
+│
+├── routes
+│
+├── uploads
+│
+└── server.js
+
+---
+
+# API Endpoints
+
+## Authentication
+
+### Register
+
+### Login
+
+---
+
+## Jobs
+
+### Create Job
+
+### Get All Jobs
+
+### Get Job By ID
+
+### Update Job
+
+### Delete Job
+
+---
+
+## Applications
+
+### Apply Job
+
+### Student Applications
+
+### View Applicants
+
+---
+
+## Resume
+
+### Upload Resume
+
+---
+
+# Environment Variables
+
+Create a `.env` file:
+
+---
+
+# Installation
+
+Clone repository:
+
+Go inside project:
+
+Install dependencies:
+
+Run development server:
+
+Server runs on:
+
+
+---
+
+# Deployment
+
+Backend deployed using:
+
+Render
+
+
+---
+
+# Future Improvements
+
+- Cloud storage for resumes
+- Email notifications
+- Advanced recruiter analytics
+- Real-time notifications
+- Payment integration
+
+
+---
+
+# Author
+
+Nigitha S S
+
+Full Stack Web Development Project
