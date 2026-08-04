@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const {uploadResume}=require("../controllers/userController");
+const {
+uploadResume,
+getProfile
+}=require("../controllers/userController");
 
 const {protect}=require("../middleware/authMiddleware");
 
@@ -15,5 +18,10 @@ upload.single("resume"),
 uploadResume
 );
 
+router.get(
+"/profile",
+protect,
+getProfile
+);
 
 module.exports=router;

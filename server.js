@@ -37,7 +37,15 @@ const limiter = rateLimit({
 
 // Middlewares
 
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://job-portal-frontend-gules-seven.vercel.app"
+        ],
+        credentials: true
+    })
+);
 
 app.use(helmet());
 

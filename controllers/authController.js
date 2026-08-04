@@ -32,11 +32,16 @@ const registerUser = async (req, res) => {
             user: newUser
         });
 
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
-    }
+    } 
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 };
 
 // Login User
@@ -75,11 +80,17 @@ const loginUser = async (req, res) => {
             }
         });
 
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
-    }
+    } 
+    
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 
@@ -104,13 +115,17 @@ const uploadResume = async(req,res)=>{
         });
 
 
-    }catch(error){
-
-        res.status(500).json({
-            message:error.message
-        });
-
     }
+    
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 const updateProfile = async (req,res)=>{
@@ -150,13 +165,17 @@ const updateProfile = async (req,res)=>{
         });
 
 
-    }catch(error){
-
-        res.status(500).json({
-            message:error.message
-        });
-
     }
+    
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 const getProfile = async(req,res)=>{
@@ -179,13 +198,17 @@ const getProfile = async(req,res)=>{
         res.status(200).json(user);
 
 
-    }catch(error){
-
-        res.status(500).json({
-            message:error.message
-        });
-
     }
+    
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 

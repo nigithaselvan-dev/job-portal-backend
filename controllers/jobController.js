@@ -1,5 +1,5 @@
 const Job = require("../models/Job");
-
+const Application = require("../models/Application");
 // Create Job
 const createJob = async (req, res) => {
   try {
@@ -28,11 +28,17 @@ const createJob = async (req, res) => {
       message: "Job Created Successfully",
       job,
     });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+  } 
+  
+  catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 };
 
 const getRecruiterJobs = async (req, res) => {
@@ -41,23 +47,50 @@ const getRecruiterJobs = async (req, res) => {
 
         const jobs = await Job.find({
             recruiter: req.user.id
-        }).sort({
+        })
+        .sort({
             createdAt: -1
         });
 
 
-        res.status(200).json(jobs);
+        const jobsWithApplicants = await Promise.all(
+
+            jobs.map(async(job)=>{
 
 
-    } catch(error) {
+                const applicantCount = await Application.countDocuments({
+                    job: job._id
+                });
 
-        res.status(500).json({
-            message:error.message
-        });
 
-    }
+                return {
+                    ...job.toObject(),
+                    applicantCount
+                };
+
+
+            })
+
+        );
+
+
+        res.status(200).json(jobsWithApplicants);
+
+
+    } 
+    
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
+
 // Get All Jobs with Pagination
 const getAllJobs = async (req, res) => {
 
@@ -95,13 +128,17 @@ const getAllJobs = async (req, res) => {
         });
 
 
-    } catch(error) {
+    } 
+    
+    catch(error){
 
-        res.status(500).json({
-            message:error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 // Get Single Job
@@ -120,13 +157,17 @@ const getJobById = async (req, res) => {
 
         res.status(200).json(job);
 
-    } catch (error) {
+    } 
+    
+    catch(error){
 
-        res.status(500).json({
-            message: error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 // Update Job
@@ -154,13 +195,17 @@ const updateJob = async (req, res) => {
             job: updatedJob
         });
 
-    } catch (error) {
+    } 
+    
+    catch(error){
 
-        res.status(500).json({
-            message: error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 // Delete Job
@@ -180,13 +225,17 @@ const deleteJob = async (req, res) => {
             message: "Job Deleted Successfully"
         });
 
-    } catch (error) {
+    } 
+    
+    catch(error){
 
-        res.status(500).json({
-            message: error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 const searchJobs = async(req,res)=>{
@@ -235,13 +284,16 @@ const searchJobs = async(req,res)=>{
         });
 
 
-    }catch(error){
-
-        res.status(500).json({
-            message:error.message
-        });
-
     }
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 // Filter Jobs
@@ -268,13 +320,15 @@ const filterJobs = async (req, res) => {
             jobs
         });
 
-    } catch (error) {
+    }catch(error){
 
-        res.status(500).json({
-            message: error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 

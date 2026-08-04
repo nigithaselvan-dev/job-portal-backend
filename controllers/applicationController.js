@@ -52,13 +52,16 @@ const applyJob = async (req, res) => {
         });
 
 
-    } catch(error) {
+    } 
+    catch(error){
 
-        res.status(500).json({
-            message:error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 
@@ -80,13 +83,17 @@ const getStudentApplications = async (req,res)=>{
         res.status(200).json(applications);
 
 
-    }catch(error){
-
-        res.status(500).json({
-            message:error.message
-        });
-
     }
+
+    catch(error){
+
+console.log(error);
+
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 
@@ -98,20 +105,24 @@ const getJobApplicants = async (req, res) => {
         const applications = await Application.find({
             job: req.params.jobId
         })
-        .populate("student", "name email phone skills education")
+        .populate("student", "name email phone skills education resume")
         .populate("job", "title company");
 
 
         res.status(200).json(applications);
 
 
-    } catch(error) {
+    } 
+    
+    catch(error){
 
-        res.status(500).json({
-            message:error.message
-        });
+console.log(error);
 
-    }
+res.status(500).json({
+message:"Server Error"
+});
+
+}
 
 };
 
