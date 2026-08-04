@@ -1,49 +1,71 @@
-# Job Portal Backend (MERN Stack)
+# Job Portal Backend 🚀
 
-A full-stack Job Portal backend application built using Node.js, Express.js, MongoDB, and JWT authentication.
+Backend API for a full-stack Job Portal application built using Node.js, Express.js, and MongoDB.
 
-This project provides APIs for students and recruiters to manage job applications, profiles, resumes, and job postings.
-
----
-
-## Features
-
-### Authentication
-- User Registration
-- User Login
-- JWT Authentication
-- Password Hashing using bcrypt
-- Role Based Authorization
-
-### Student Module
-- Create and Update Profile
-- Upload Resume
-- Browse Jobs
-- Search Jobs
-- Filter Jobs
-- Apply for Jobs
-- View Applied Jobs
-
-### Recruiter/Admin Module
-- Create Jobs
-- Update Jobs
-- Delete Jobs
-- View Applicants
-- Accept/Reject Applications
-
-### Advanced Features
-- File Upload using Multer
-- MongoDB Relationships
-- Search Queries
-- Filtering
-- Pagination
-- Error Handling Middleware
-- Security using Helmet
-- API Rate Limiting
+This backend provides secure REST APIs for authentication, job management, applications, and resume upload functionality.
 
 ---
 
-## Tech Stack
+## 🚀 Live Backend
+
+Backend URL:
+
+https://job-portal-backend-mh0z.onrender.com
+
+---
+
+# Features
+
+## Authentication
+- User registration
+- User login
+- JWT based authentication
+- Password hashing using bcrypt
+- Role-based authorization
+
+Roles:
+- Student
+- Recruiter
+- Admin
+
+
+## Job Management
+
+Recruiter features:
+- Create jobs
+- View posted jobs
+- Update jobs
+- Delete jobs
+
+Student features:
+- View available jobs
+- Search jobs
+- Filter jobs
+- View job details
+
+
+## Application Management
+
+Student:
+- Apply for jobs
+- Track application status
+
+Recruiter:
+- View applicants
+- Accept applications
+- Reject applications
+
+
+## Resume Management
+
+- Upload resume in PDF format
+- Store resume path
+- View uploaded resume
+
+
+---
+
+# Tech Stack
 
 ### Backend
 - Node.js
@@ -57,48 +79,19 @@ This project provides APIs for students and recruiters to manage job application
 - JWT
 - bcrypt
 
-### Tools
-- Postman
-- Git & GitHub
+### File Upload
+- Multer
+
+### Security
+- Helmet
+- Express Rate Limiter
+- CORS
+
+
+### Deployment
+- Render
+
 
 ---
 
-## Project Structure
-
-```text
-backend
-│
-├── config
-│   └── db.js
-│
-├── controllers
-│   ├── authController.js
-│   ├── jobController.js
-│   └── applicationController.js
-│
-├── middleware
-│   ├── authMiddleware.js
-│   ├── roleMiddleware.js
-│   ├── uploadMiddleware.js
-│   └── errorMiddleware.js
-│
-├── models
-│   ├── user.js
-│   ├── Job.js
-│   └── Application.js
-│
-├── routes
-│   ├── authRoutes.js
-│   ├── jobRoutes.js
-│   └── applicationRoutes.js
-│
-├── utils
-│   └── generateToken.js
-│
-├── uploads
-│
-├── server.js
-├── package.json
-└── .env
-```
-
+# Project Structure
