@@ -30,17 +30,17 @@ const userSchema = new mongoose.Schema(
 
     phone: {
       type: String,
-      default: "",
+      default: "Not added",
     },
 
     skills: {
-      type: [String],
-      default: [],
+      type: String,
+      default: "Not added",
     },
 
     education: {
       type: String,
-      default: "",
+      default: "Not added",
     },
 
     resume: {
